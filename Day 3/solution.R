@@ -56,3 +56,5 @@ while (length(co2$X1) > 1) {
 }
 
 result2 <- strtoi(o2$X1[1], base = 2) * strtoi(co2$X1[1], base = 2)
+
+print(c(result1, result2))
