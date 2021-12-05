@@ -73,11 +73,6 @@ while (wincheck(gamestate) == F){
   draw_pos <- draw_pos + 1
 }
 
-<<<<<<< HEAD
+
 print(sum(cards[[a]][which(is.nan(gamestate[[a]]), arr.ind = T)], na.rm = T) * draw[draw_pos - 1])
 gc()
-
-=======
-
-print(sum(cards[[a]][which(is.nan(gamestate[[a]]), arr.ind = T)], na.rm = T) * draw[draw_pos - 1])
->>>>>>> 346bed347d55f11030e21e7cc45f4d820c9f4b52
