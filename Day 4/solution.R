@@ -1,7 +1,7 @@
 wincheck <- function(x) {
   for (a in 1:length(x)) {
     if (F %in% is.nan(colSums(x[[a]])) || F %in% is.nan(rowSums(x[[a]]))) {    
-      return(a)
+      return(TRUE)
     }
   }
   return(FALSE)
@@ -10,7 +10,11 @@ wincheck <- function(x) {
 game <- function(y) {
   while (wincheck(gamestate) == F){
     
-    
+    for (draw_pos in 1:length(draw)){
+      
+      draw[draw_pos]
+      
+    }
     
   }
   
