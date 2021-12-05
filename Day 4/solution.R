@@ -8,22 +8,6 @@ wincheck <- function(x) {
   return(FALSE)
 }
 
-
-game <- function(y) {
-  while (wincheck(gamestate) == F){
-    
-    for (draw_pos in 1:length(draw)){
-      
-      draw[draw_pos]
-      
-    }
-    
-  }
-  
-  print(c(a, draw_pos))
-  
-}
-
 draw <- strsplit(readLines("Day 4/input.txt", n = 1), ",", T)
 
 draw <- as.numeric(draw[[1]])
@@ -55,4 +39,39 @@ while (wincheck(gamestate) == F){
   draw_pos <- draw_pos + 1
 }
 
-result1 <- sum(cards[[a]][which(is.nan(gamestate[[a]]), arr.ind = T)], na.rm = T) * draw[draw_pos - 1]
+print(sum(cards[[a]][which(is.nan(gamestate[[a]]), arr.ind = T)], na.rm = T) * draw[draw_pos - 1])
+
+
+while (length(cards) > 1){
+  
+  if (wincheck(gamestate) == T){
+    
+    gamestate[[a]] <- NULL
+    cards[[a]] <- NULL
+    
+  } else
+    
+    while (wincheck(gamestate) == F){
+      
+      for (i in 1:length(cards)){
+        gamestate[[i]][which(cards[[i]] == draw[draw_pos],arr.ind = T)] <- 
+          cards[[i]][which(cards[[i]] == draw[draw_pos],arr.ind = T)]
+      }
+      
+      draw_pos <- draw_pos + 1
+    }
+  
+}
+
+while (wincheck(gamestate) == F){
+  
+  for (i in 1:length(cards)){
+    gamestate[[i]][which(cards[[i]] == draw[draw_pos],arr.ind = T)] <- 
+      cards[[i]][which(cards[[i]] == draw[draw_pos],arr.ind = T)]
+  }
+  
+  draw_pos <- draw_pos + 1
+}
+
+
+print(sum(cards[[a]][which(is.nan(gamestate[[a]]), arr.ind = T)], na.rm = T) * draw[draw_pos - 1])
