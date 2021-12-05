@@ -1,13 +1,35 @@
 wincheck <- function(x) {
   for (a in 1:length(x)) {
     if (F %in% is.nan(colSums(x[[a]])) || F %in% is.nan(rowSums(x[[a]]))) {    
+<<<<<<< HEAD
       a <<- a
       return(T)
+=======
+      return(TRUE)
+>>>>>>> f87f02b0957a32a558fb9f6aaa720352181528c2
     }
   }
   return(FALSE)
 }
 
+<<<<<<< HEAD
+=======
+game <- function(y) {
+  while (wincheck(gamestate) == F){
+    
+    for (draw_pos in 1:length(draw)){
+      
+      draw[draw_pos]
+      
+    }
+    
+  }
+  
+  print(c(a, draw_pos))
+  
+}
+
+>>>>>>> f87f02b0957a32a558fb9f6aaa720352181528c2
 draw <- strsplit(readLines("Day 4/input.txt", n = 1), ",", T)
 
 draw <- as.numeric(draw[[1]])
