@@ -13,5 +13,5 @@ result2 <-
     ))) + 1)
   ) / 2)))
 
-print(c("Result1:", result1))
-print(c("Result2:", result2))
+print(paste("Result1:", result1), sep = "")
+print(paste("Result2:", result2), sep = "")
