@@ -1,4 +1,5 @@
 #Part 1 solution: Looping and simulating each specimen works, but is slow. Doesn't work for part 2
+require("readr")
 input <- as.list(read_csv("Day 6/input.txt", col_names = F))
 
 #Part 2 we simply keep track of the number of fish in each "stage"
