@@ -30,6 +30,7 @@ for (i in 1:length(part2)) {
   
   for (f in 1:length(seg6)){
     #ha az 1 es vonalai nincsenek a seg6ban, akkor a seg6 f-edik eleme a "6"
+    #for some reason, this works for i = 2 and i = 5 but not for i = 1,3,4
     if (F %in% (unlist(strsplit(nums[2,2], NULL)) %in% unlist(strsplit(seg6[f], NULL)))){
       nums[7,2] <- seg6[f]
       seg6 <- seg6[seg6 != seg6[f]]
