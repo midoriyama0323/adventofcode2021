@@ -1,18 +1,18 @@
-input <- lapply(strsplit(scan("Day 9/input.txt", what = "character"), NULL), function(x) as.numeric(x))
+input <- lapply(strsplit(scan("Day 9/input.txt", what = "character"), NULL), function(x) as.integer(x))
 input <- as.matrix(as.data.frame(input, col.names = 1:100))
 
-#credit to Stibu on stackoverflow for this function
-get.nbhd <- function(m, i, j) {
+
+get.nbhd <- function(m, r, c) {
   # get indices
-  idx <- matrix(c(i-1, i+1, i, i, j, j, j+1, j-1), ncol = 2)
-  # set out of bound indices to 11
+  idx <- matrix(c(r-1, r+1, r, r, c, c, c+1, c-1), ncol = 2)
+  # set out of bound indices to 0
   idx[idx[, 1] > nrow(m), 1] <- 0
   idx[idx[, 2] > ncol(m), 2] <- 0
   return (m[idx])
 }
 
 
-lowp <- double()
+lowpos <- c()
 
 for (r in 1:nrow(input)){
   
@@ -20,13 +20,12 @@ for (r in 1:nrow(input)){
     
     if (all(get.nbhd(input, r,c) > input[r,c]) == T){
       
-      lowp <- append(lowp,input[r,c], after = length(lowp))
-      
+      lowpos <- rbind(lowpos, c(r,c))
     }
     
   }
   
   
 }
-risk <- sum(lowp + 1)
-risk
+
+sum(input[lowpos] + 1)
