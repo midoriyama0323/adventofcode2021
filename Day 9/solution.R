@@ -3,9 +3,9 @@ input <- as.matrix(as.data.frame(input, col.names = 1:100))
 
 
 get.nbhd <- function(m, r, c) {
-  # get indices
+
   idx <- matrix(c(r-1, r+1, r, r, c, c, c+1, c-1), ncol = 2)
-  # set out of bound indices to 0
+
   idx[idx[, 1] > nrow(m), 1] <- 0
   idx[idx[, 2] > ncol(m), 2] <- 0
   return (m[idx])
@@ -29,3 +29,4 @@ for (r in 1:nrow(input)){
 }
 
 sum(input[lowpos] + 1)
+
